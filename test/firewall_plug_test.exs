@@ -1,8 +1,8 @@
-defmodule FirewallPlugTest do
+defmodule Phx2BanTest do
   use ExUnit.Case
-  doctest FirewallPlug
+  doctest Phx2Ban
 
   test "greets the world" do
-    assert FirewallPlug.hello() == :world
+    assert Phx2Ban.hello() == :world
   end
 end

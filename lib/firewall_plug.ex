@@ -1,6 +1,6 @@
-defmodule FirewallPlug do
+defmodule Phx2Ban do
   @moduledoc """
-  Documentation for `FirewallPlug`.
+  Documentation for `Phx2Ban`.
   """
 
   @doc """
@@ -8,7 +8,7 @@ defmodule FirewallPlug do
 
   ## Examples
 
-      iex> FirewallPlug.hello()
+      iex> Phx2Ban.hello()
       :world
 
   """
