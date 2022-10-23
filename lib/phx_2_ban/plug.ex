@@ -31,7 +31,7 @@ defmodule Phx2Ban.Plug do
       :ok ->
         maybe_analyze_request(conn, opts.analyze_request?)
 
-      _ ->
+      :block ->
         Telemetry.execute_rejected_request(conn)
 
         conn

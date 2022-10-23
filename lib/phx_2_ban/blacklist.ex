@@ -17,13 +17,13 @@ defmodule Phx2Ban.Blacklist do
   end
 
   @doc false
-  def block_ip_address(%Conn{remote_ip: remote_ip}) do
+  def block_ip_address(remote_ip) do
     GenServer.cast(__MODULE__, {:block_ip_address, remote_ip})
   end
 
   @doc false
   def valid_ip_address?(%Conn{remote_ip: nil}) do
-    false
+    true
   end
 
   def valid_ip_address?(%Conn{remote_ip: remote_ip}) do
@@ -57,6 +57,13 @@ defmodule Phx2Ban.Blacklist do
   end
 
   @impl true
+  def handle_continue(:schedule_timer, %{check_interval: check_interval} = state) do
+    Process.send_after(self(), :clear_expired_blocks, check_interval)
+
+    {:noreply, state}
+  end
+
+  @impl true
   def handle_cast(
         {:block_ip_address, remote_ip},
         %{blocked_ip_table: blocked_ip_table, block_duration: block_duration} = state
@@ -72,13 +79,6 @@ defmodule Phx2Ban.Blacklist do
 
     :ets.insert(blocked_ip_table, {unblock_at_timestamp, remote_ip})
     Telemetry.execute_blacklist_ip_blocked(remote_ip)
-
-    {:noreply, state}
-  end
-
-  @impl true
-  def handle_continue(:schedule_timer, %{check_interval: check_interval} = state) do
-    Process.send_after(self(), :clear_expired_blocks, check_interval)
 
     {:noreply, state}
   end
