@@ -29,8 +29,7 @@ defmodule Phx2Ban do
   end
 
   @doc """
-  Analyze a request to see if the remote IP address
-  should be blocked.
+  Analyze a request to see if the remote IP address should be blocked.
   """
   def analyze_request(%Conn{} = conn) do
     Phx2Ban.Analyzer.analyze_request(conn)

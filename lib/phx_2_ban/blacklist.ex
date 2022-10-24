@@ -74,8 +74,7 @@ defmodule Phx2Ban.Blacklist do
     |> :cuckoo_filter.add(remote_ip)
 
     # Add the IP to the ETS blocked IP table
-    unblock_at_timestamp =
-      System.monotonic_time() + System.convert_time_unit(block_duration, :millisecond, :native)
+    unblock_at_timestamp = System.monotonic_time() + System.convert_time_unit(block_duration, :millisecond, :native)
 
     :ets.insert(blocked_ip_table, {unblock_at_timestamp, remote_ip})
     Telemetry.execute_blacklist_ip_blocked(remote_ip)
