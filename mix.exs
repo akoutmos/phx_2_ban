@@ -35,7 +35,8 @@ defmodule Phx2Ban.MixProject do
 
       # Development dependencies
       {:ex_doc, "~> 0.29.0", only: :dev},
-      {:doctor, "~> 0.20.0", only: :dev}
+      {:doctor, "~> 0.20.0", only: :dev},
+      {:credo, "~> 1.6", only: :dev}
     ]
   end
 
