@@ -1,7 +1,7 @@
 <!--START-->
 <p align="center">
-  <img align="center" width="30%" src="guides/images/logo.svg" alt="Phx2Ban logo">
-  <img align="center" width="40%" src="guides/images/logo_text.png" alt="Phx2Ban name">
+  <img align="center" width="20%" src="guides/images/logo.svg" alt="Phx2Ban logo">
+  <img align="center" width="35%" src="guides/images/logo_text.png" alt="Phx2Ban name">
 </p>
 
 <p align="center">
