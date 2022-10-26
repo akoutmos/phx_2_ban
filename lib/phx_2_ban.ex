@@ -1,5 +1,5 @@
 defmodule Phx2Ban do
-  @doc """
+  @moduledoc """
   This process is responsible for setting up the firewall
   rules for the Phoenix application.
   """

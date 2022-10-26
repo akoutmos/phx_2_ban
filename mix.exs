@@ -34,7 +34,8 @@ defmodule Phx2Ban.MixProject do
       {:cuckoo_filter, "~> 0.3.1"},
 
       # Development dependencies
-      {:ex_doc, "~> 0.29.0", only: :dev}
+      {:ex_doc, "~> 0.29.0", only: :dev},
+      {:doctor, "~> 0.20.0", only: :dev}
     ]
   end
 
