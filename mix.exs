@@ -27,7 +27,7 @@ defmodule Phx2Ban.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      # Production dependencies
+      # Required dependencies
       {:plug, "~> 1.13"},
       {:telemetry, "~> 1.1"},
       {:xxh3, "~> 0.3.2"},
@@ -36,7 +36,10 @@ defmodule Phx2Ban.MixProject do
       # Development dependencies
       {:ex_doc, "~> 0.29.0", only: :dev},
       {:doctor, "~> 0.20.0", only: :dev},
-      {:credo, "~> 1.6", only: :dev}
+      {:credo, "~> 1.6", only: :dev},
+      {:excoveralls, "~> 0.15.3", only: :test, runtime: false},
+      {:dialyxir, "~> 1.2.0", only: :dev, runtime: false},
+      {:git_hooks, "~> 0.7.3", only: [:test, :dev], runtime: false}
     ]
   end
 
