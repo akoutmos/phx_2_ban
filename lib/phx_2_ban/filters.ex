@@ -17,7 +17,7 @@ defmodule Phx2Ban.Filters do
   end
 
   @doc """
-  This rul will flag requests that aim to find PHP files.
+  This rule will flag requests that aim to find PHP files.
   """
   def php_file_extensions(%ConnData{request_path: request_path}) do
     Regex.match?(~r/\.php.(?:tmp|bkp|old|orig|swp|temp|copy|backup|save)$/, request_path)

@@ -16,7 +16,7 @@ defmodule Phx2Ban.Plug do
       resp_status_code: 429,
       resp_body: "Too Many Requests",
       resp_headers: [
-        {"retry-after", 3_600}
+        {"retry-after", 360_000}
       ]
     }
 
@@ -49,7 +49,7 @@ defmodule Phx2Ban.Plug do
     end)
   end
 
-  defp maybe_analyze_request(conn, analyze_request?) do
+  defp maybe_analyze_request(%Conn{} = conn, analyze_request?) do
     if analyze_request?.(conn) do
       Conn.register_before_send(conn, fn ->
         Phx2Ban.analyze_request(conn)
